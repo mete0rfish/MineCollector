@@ -1,5 +1,7 @@
 package com.doubledeltas.minecollector;
 
+import com.doubledeltas.minecollector.balance.VaultDirector;
+import com.doubledeltas.minecollector.balance.VaultManager;
 import com.doubledeltas.minecollector.config.McolConfig;
 import com.doubledeltas.minecollector.config.chapter.AnnouncementChapter;
 import com.doubledeltas.minecollector.config.chapter.ScoringChapter;
@@ -159,6 +161,9 @@ public class GameDirector {
                         .append(" 아이템을 처음 수집했습니다!").color(ChatColor.GREEN)
                         .create()
         );
+
+        VaultDirector.addFirstCollectBalance(target);
+
         for (Player p: announcementConfig.getCollection().resolve(target))
            SoundUtil.playHighRing(p);
     }

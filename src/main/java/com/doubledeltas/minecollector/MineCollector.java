@@ -1,5 +1,6 @@
 package com.doubledeltas.minecollector;
 
+import com.doubledeltas.minecollector.balance.VaultManager;
 import com.doubledeltas.minecollector.command.CommandRoot;
 import com.doubledeltas.minecollector.config.ConfigManager;
 import com.doubledeltas.minecollector.config.InvalidConfigException;
@@ -37,6 +38,7 @@ public final class MineCollector extends JavaPlugin {
             e.printStackTrace();
         }
         DataAutoSaver.start();
+        VaultManager.setupEconomy();
         MessageUtil.log(Level.INFO, "마인콜렉터 플러그인이 켜졌습니다!");
     }
 
